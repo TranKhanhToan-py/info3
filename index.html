@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thẻ thông tin cá nhân</title>
+  <meta name="description" content="Trang web thông tin cá nhân kèm mã QR." />
+  <style>
+    /* Giữ nguyên toàn bộ style như trước */
+    :root { /* ... */ }
+    /* ... toàn bộ CSS như cũ ... */
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <section class="header">
+      <img class="avatar" src="avatar.jpg" alt="Ảnh đại diện" onerror="this.style.display='none'" />
+      <div class="title">
+        <h1 id="name">Tên của bạn</h1>
+        <div class="subtitle">Thông tin liên hệ</div>
+        <div class="pill">Cập nhật lần cuối: <span id="updated"></span></div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="panel">
+        <!-- Các row thông tin -->
+        <div class="row"><div class="label">Số điện thoại</div><div class="value"><a id="phone" href="tel:0335067248">0335 067 248</a></div></div>
+        <div class="row"><div class="label">TikTok</div><div class="value"><a id="tiktok" href="https://www.tiktok.com/@dang_hoc_cybersecurity" target="_blank" rel="noopener">@dang_hoc_cybersecurity</a></div></div>
+        <div class="row"><div class="label">Facebook</div><div class="value"><a id="facebook" href="https://facebook.com/dang.hoc.cyber" target="_blank" rel="noopener">facebook.com/dang.hoc.cyber</a></div></div>
+        <div class="row"><div class="label">GitHub</div><div class="value"><a id="github" href="https://github.com/TranKhanhToan-py" target="_blank" rel="noopener">github.com/TranKhanhToan-py</a></div></div>
+        <div class="row"><div class="label">Gmail</div><div class="value"><a id="gmail" href="mailto:trankhanhtoan5b@gmail.com">trankhanhtoan5b@gmail.com</a></div></div>
+        <div class="row"><div class="label">Trường học</div><div class="value">Trường TH&THCS Tân Minh</div></div>
+        <div class="row"><div class="label">Địa chỉ</div><div class="value">Tân Minh, Hàm Tân, Bình Thuận</div></div>
+
+        <div class="links">
+          <a class="btn" id="btn-call" href="tel:0335067248">Gọi ngay</a>
+          <a class="btn" id="btn-tiktok" href="https://www.tiktok.com/@dang_hoc_cybersecurity" target="_blank" rel="noopener">TikTok</a>
+          <a class="btn" id="btn-facebook" href="https://facebook.com/dang.hoc.cyber" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn" id="btn-github" href="https://github.com/TranKhanhToan-py" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" id="btn-gmail" href="mailto:trankhanhtoan5b@gmail.com">Gmail</a>
+          <!-- Nút trường học dẫn tới Google Maps đúng vị trí trường -->
+          <a class="btn" id="btn-school"
+             href="https://www.google.com/maps/search/?api=1&query=10.8520338,107.6383424"
+             target="_blank" rel="noopener">
+            Trường học
+          </a>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="qr">
+          <img src="qr_code.png" alt="Mã QR tới trang thông tin"
+               onerror="this.alt='Chưa tìm thấy qr_code.png'; this.style.opacity=.6" />
+          <div class="caption">Quét mã để mở trang này hoặc chia sẻ nhanh.</div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const el = document.getElementById('updated');
+      if(el){
+        const d = new Date();
+        const f = new Intl.DateTimeFormat('vi-VN', {
+          day:'2-digit', month:'2-digit', year:'numeric',
+          hour:'2-digit', minute:'2-digit'
+        });
+        el.textContent = f.format(d);
+      }
+    })();
+
+    document.getElementById('name').textContent = 'Trần Khánh Toàn';
+    document.getElementById('phone').textContent = '0335 067 248';
+    document.getElementById('phone').href = 'tel:0335067248';
+    document.getElementById('tiktok').href = 'https://www.tiktok.com/@dang_hoc_cybersecurity';
+    document.getElementById('tiktok').textContent = '@dang_hoc_cybersecurity';
+    document.getElementById('facebook').href = 'https://facebook.com/dang.hoc.cyber';
+    document.getElementById('facebook').textContent = 'facebook.com/dang.hoc.cyber';
+    document.getElementById('btn-call').href = 'tel:0335067248';
+    document.getElementById('btn-tiktok').href = 'https://www.tiktok.com/@dang_hoc_cybersecurity';
+    document.getElementById('btn-facebook').href = 'https://facebook.com/dang.hoc.cyber';
+    document.getElementById('github').href = 'https://github.com/TranKhanhToan-py';
+    document.getElementById('github').textContent = 'github.com/TranKhanhToan-py';
+    document.getElementById('btn-github').href = 'https://github.com/TranKhanhToan-py';
+    document.getElementById('gmail').href = 'mailto:trankhanhtoan5b@gmail.com';
+    document.getElementById('gmail').textContent = 'trankhanhtoan5b@gmail.com';
+    document.getElementById('btn-gmail').href = 'mailto:trankhanhtoan5b@gmail.com';
+    // Nút trường học chỉ cần href tĩnh, không cần JS
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Trần Khánh Toàn",
+    "telephone": "+84335067248",
+    "email": "mailto:trankhanhtoan5b@gmail.com",
+    "sameAs": [
+      "https://www.tiktok.com/@dang_hoc_cybersecurity",
+      "https://facebook.com/dang.hoc.cyber",
+      "https://github.com/TranKhanhToan-py"
+    ],
+    "alumniOf": "Trường TH&THCS Tân Minh",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tân Minh",
+      "addressRegion": "Hàm Tân, Bình Thuận",
+      "addressCountry": "VN"
+    }
+  }
+  </script>
+</body>
+</html>
